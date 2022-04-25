@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 /**
  * The Main Activity that starts up when the app launches. Shows Cafe Register options
@@ -65,5 +66,45 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Intent intent = new Intent(this, StoreOrdersActivity.class);
         intent.putExtra("MAIN", this);
         startActivity(intent);
+    }
+
+    /**
+     * Create a String for a given double value using appropriate formatting.
+     * @param amount double value
+     * @return formatted String value of the form <$1,234.56>.
+     */
+    public static String formatAmount(double amount) {
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        decimalFormat.setGroupingUsed(true);
+        decimalFormat.setGroupingSize(3);
+        return "$" + decimalFormat.format(amount);
+    }
+
+    /**
+     * adds the input order to the placed orders list.
+     * @param order the newly placed order to be added to the store orders.
+     * @return the reference to the next empty order.
+     */
+    public Order placeOrder(Order order) {
+        storeOrders.add(order);
+        int newOrderNum = order.getOrderNum() + 1;
+        orderBasket = new Order(newOrderNum);
+        return orderBasket;
+    }
+
+    /**
+     * Returns the orderBasket object which contains the current order.
+     * @return the current order in an Order object.
+     */
+    public Order getOrderBasket() {
+        return orderBasket;
+    }
+
+    /**
+     * Returns the storeOrders object which contains the list of placed orders.
+     * @return the list of placed orders in a StoreOrders object.
+     */
+    public StoreOrders getStoreOrders() {
+        return storeOrders;
     }
 }
