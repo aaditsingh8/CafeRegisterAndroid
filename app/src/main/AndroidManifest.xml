@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeRegister">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        android:name=".MainActivity"
+        android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,15 +19,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DonutActivity"
-            android:exported="false"
-            android:label="@string/activity_donut_name"
-            android:parentActivityName=".MainActivity" />
+        android:name=".DonutActivity"
+        android:exported="false"
+        android:label="@string/activity_donut_name"
+        android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".CoffeeActivity"
-            android:exported="false"
-            android:label="@string/activity_coffee_name"
-            android:parentActivityName=".MainActivity" />
+        android:name=".CoffeeActivity"
+        android:exported="false"
+        android:label="@string/activity_coffee_name"
+        android:parentActivityName=".MainActivity" />
+        <activity
+        android:name=".StoreOrdersActivity"
+        android:exported="false"
+        android:label="@string/activity_order_name"
+        android:parentActivityName=".MainActivity" />
+        <activity
+        android:name=".YourOrderActivity"
+        android:exported="false"
+        android:label="@string/activity_store_orders_name"
+        android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

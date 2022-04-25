@@ -46,4 +46,24 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         intent.putExtra("MAIN", this);
         startActivity(intent);
     }
+
+    /**
+     * The event that the your order button is clicked. Starts the Your Order Activity.
+     * @param view the implicit View object.
+     */
+    public void onClickYourOrder(View view) {
+        Intent intent = new Intent(this, YourOrderActivity.class);
+        intent.putExtra("MAIN", this);
+        startActivity(intent);
+    }
+
+    /**
+     * The event that the store orders button is clicked. Starts the Store Orders Activity.
+     * @param view the implicit View object.
+     */
+    public void onClickStoreOrders(View view) {
+        Intent intent = new Intent(this, StoreOrdersActivity.class);
+        intent.putExtra("MAIN", this);
+        startActivity(intent);
+    }
 }
