@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
         <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
+        <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/layout/activity_coffee.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/layout/activity_donut.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/layout/activity_donut_order.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/layout/activity_store_orders.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/layout/activity_your_order.xml" value="0.5" />
         <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/layout/orderview.xml" value="0.358695652173913" />
         <entry key="..\:/Users/psnat/AndroidStudioProjects/CafeRegisterAndroid/app/src/main/res/layout/storeorderview.xml" value="0.358695652173913" />

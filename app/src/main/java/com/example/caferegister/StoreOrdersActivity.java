@@ -5,11 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class StoreOrdersActivity extends AppCompatActivity {
 
     private MainActivity mainActivity;
+    private Order order;
+    private List<Order> allOrdersList;
+    private ListView allOrdersListView;
+    private TextView totalAmount;
+    private Button cancelOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +33,7 @@ public class StoreOrdersActivity extends AppCompatActivity {
      * Removes item from order.
      * @param view the implicit view object.
      */
-    public void onClickRemoveOrder(View view) {
+    public void onClickCancelOrder(View view) {
         MainActivity.orderBasket.add(1);
 
         Context context = getApplicationContext();
