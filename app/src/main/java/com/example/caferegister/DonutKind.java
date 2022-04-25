@@ -33,6 +33,21 @@ public enum DonutKind {
     }
 
     /**
+     * Return the required DonutKind object based on the flavor.
+     * @param flavor the flavor as a string.
+     * @return the required DonutKind object.
+     */
+    public static DonutKind getDonutKind(String flavor) {
+        DonutKind donutKind = null;
+        for(DonutKind kind : values()) {
+            if (kind.flavor.equals(flavor)) {
+                donutKind = kind;
+            }
+        }
+        return donutKind;
+    }
+
+    /**
      * Returns the donut type.
      * @return the donut type as a DonutType object.
      */

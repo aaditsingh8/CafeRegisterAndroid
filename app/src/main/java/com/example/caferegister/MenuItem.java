@@ -1,11 +1,13 @@
 package com.example.caferegister;
 
+import java.io.Serializable;
+
 /**
  * Models a menu item in the orders placed at RU Café.
  * Every menu item has a price as a double value and implements a getPrice() method.
  * @author Aadit Singh, Shivan Suratia
  */
-public class MenuItem {
+public class MenuItem implements Serializable {
 
     protected int quantity;
 

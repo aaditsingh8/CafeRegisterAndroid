@@ -70,6 +70,13 @@ public class CoffeeActivity extends AppCompatActivity {
         size.setAdapter(sizes);
 
         size.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             * Handles the event that a quantity is selected form the quantity spinner.
+             * @param adapterView the AdapterView where the selection happened.
+             * @param view the view within the AdapterView that was clicked.
+             * @param position the position of the view in the adapter.
+             * @param l the row id of the item that is selected.
+             */
             @Override
             public void onItemSelected(AdapterView<?> adapterView,
                                        View view,
@@ -79,6 +86,10 @@ public class CoffeeActivity extends AppCompatActivity {
                 displaySubtotal();
             }
 
+            /**
+             * Handles the event that nothing is changed in the quantity spinner.
+             * @param adapterView the AdapterView that now contains no selected item.
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) { }
         });
@@ -96,6 +107,13 @@ public class CoffeeActivity extends AppCompatActivity {
         quantity.setAdapter(quantities);
 
         quantity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             * Handles the event that a size is selected form the quantity spinner.
+             * @param adapterView the AdapterView where the selection happened.
+             * @param view the view within the AdapterView that was clicked.
+             * @param position the position of the view in the adapter.
+             * @param l the row id of the item that is selected.
+             */
             @Override
             public void onItemSelected(AdapterView<?> adapterView,
                                        View view,
@@ -105,6 +123,10 @@ public class CoffeeActivity extends AppCompatActivity {
                 displaySubtotal();
             }
 
+            /**
+             * Handles the event that nothing is changed in the quantity spinner.
+             * @param adapterView the AdapterView that now contains no selected item.
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) { }
         });
@@ -196,7 +218,6 @@ public class CoffeeActivity extends AppCompatActivity {
      */
     public void onClickAddButton(View view) {
         MainActivity.orderBasket.add(coffee);
-
         Context context = getApplicationContext();
         CharSequence text = getString(R.string.coffee_toast);
         int duration = Toast.LENGTH_SHORT;

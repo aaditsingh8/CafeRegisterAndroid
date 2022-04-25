@@ -12,4 +12,6 @@
     <string name="coffee_subtotal_hint">subtotal</string>
     <string name="coffee_button_text">ADD COFFEE</string>
     <string name="coffee_toast">Coffee added to your order.</string>
+    <string name="donut_button_text">ADD DONUT</string>
+    <string name="donut_toast">Donut added to order.</string>
 </resources>

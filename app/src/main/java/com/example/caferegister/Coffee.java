@@ -1,5 +1,6 @@
 package com.example.caferegister;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * Contains a size and add-ins. Price is determined by size and number of add-ins.
  * @author Aadit Singh, Shivan Suratia.
  */
-public class Coffee extends MenuItem implements Customizable {
+public class Coffee extends MenuItem implements Customizable, Serializable {
     private static final double SIZE_BASE_PRICE = 1.69;
     private static final double SIZE_INCR_PRICE = 0.40;
 
