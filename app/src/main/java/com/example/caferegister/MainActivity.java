@@ -68,6 +68,13 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     /**
+     * Returns order basket
+     */
+    public Order getOrderBasket() {
+        return orderBasket;
+    }
+
+    /**
      * Create a String for a given double value using appropriate formatting.
      * @param amount double value
      * @return formatted String value of the form <$1,234.56>.
