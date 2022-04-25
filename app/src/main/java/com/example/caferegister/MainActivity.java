@@ -15,8 +15,11 @@ import java.text.DecimalFormat;
  */
 public class MainActivity extends AppCompatActivity implements Serializable {
 
-    public Order orderBasket;
-    public StoreOrders storeOrders;
+    private static final int AMOUNT_GROUPING = 3;
+    private static final int INIT_ORDER = 1;
+
+    public static Order orderBasket = new Order(INIT_ORDER);
+    public static StoreOrders storeOrders = new StoreOrders();
 
     /**
      * The onCreate function for the Activity.
@@ -34,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onClickDonut(View view) {
         Intent intent = new Intent(this, DonutActivity.class);
-        intent.putExtra("MAIN", this);
         startActivity(intent);
     }
 
@@ -44,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onClickCoffee(View view) {
         Intent intent = new Intent(this, CoffeeActivity.class);
-        intent.putExtra("MAIN", this);
         startActivity(intent);
     }
 
@@ -54,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onClickYourOrder(View view) {
         Intent intent = new Intent(this, YourOrderActivity.class);
-        intent.putExtra("MAIN", this);
         startActivity(intent);
     }
 
@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
      */
     public void onClickStoreOrders(View view) {
         Intent intent = new Intent(this, StoreOrdersActivity.class);
-        intent.putExtra("MAIN", this);
         startActivity(intent);
     }
 
@@ -76,35 +75,19 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     public static String formatAmount(double amount) {
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
         decimalFormat.setGroupingUsed(true);
-        decimalFormat.setGroupingSize(3);
+        decimalFormat.setGroupingSize(AMOUNT_GROUPING);
         return "$" + decimalFormat.format(amount);
     }
 
     /**
-     * adds the input order to the placed orders list.
+     * Adds the input order to the placed orders list.
      * @param order the newly placed order to be added to the store orders.
      * @return the reference to the next empty order.
      */
-    public Order placeOrder(Order order) {
+    public static Order placeOrder(Order order) {
         storeOrders.add(order);
         int newOrderNum = order.getOrderNum() + 1;
         orderBasket = new Order(newOrderNum);
         return orderBasket;
-    }
-
-    /**
-     * Returns the orderBasket object which contains the current order.
-     * @return the current order in an Order object.
-     */
-    public Order getOrderBasket() {
-        return orderBasket;
-    }
-
-    /**
-     * Returns the storeOrders object which contains the list of placed orders.
-     * @return the list of placed orders in a StoreOrders object.
-     */
-    public StoreOrders getStoreOrders() {
-        return storeOrders;
     }
 }

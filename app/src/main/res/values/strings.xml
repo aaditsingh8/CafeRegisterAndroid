@@ -4,4 +4,12 @@
     <string name="activity_coffee_name">Order Coffee</string>
     <string name="activity_order_name">Your Order</string>
     <string name="activity_store_orders_name">Store Orders</string>
+    <string name="coffee_addition_1">Cream</string>
+    <string name="coffee_addition_2">Syrup</string>
+    <string name="coffee_addition_3">Milk</string>
+    <string name="coffee_addition_4">Caramel</string>
+    <string name="coffee_addition_5">Whipped Cream</string>
+    <string name="coffee_subtotal_hint">subtotal</string>
+    <string name="coffee_button_text">ADD COFFEE</string>
+    <string name="coffee_toast">Coffee added to your order.</string>
 </resources>
