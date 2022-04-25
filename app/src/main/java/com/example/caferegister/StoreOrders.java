@@ -52,7 +52,7 @@ public class StoreOrders implements Customizable {
             return orders.add(order);
         }
         return false;
-    };
+    }
 
     /**
      * Removes an order item from the register.
@@ -66,6 +66,6 @@ public class StoreOrders implements Customizable {
             return orders.remove(order);
         }
         return false;
-    };
+    }
 }
 

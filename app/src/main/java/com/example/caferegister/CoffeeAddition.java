@@ -38,13 +38,26 @@ public enum CoffeeAddition {
      * @return the correct add-in as a CoffeeAddition enum object.
      */
     public static CoffeeAddition getAddition(String str) {
-        return switch (str) {
-            case "Cream" -> CREAM;
-            case "Syrup" -> SYRUP;
-            case "Milk" -> MILK;
-            case "Caramel" -> CARAMEL;
-            case "Whipped Cream" -> WHIPPED_CREAM;
-            default -> null;
-        };
+        CoffeeAddition addition = null;
+        switch (str) {
+            case "Cream":
+                addition = CREAM;
+                break;
+            case "Syrup":
+                addition = SYRUP;
+                break;
+            case "Milk":
+                addition = MILK;
+                break;
+            case "Caramel":
+                addition = CARAMEL;
+                break;
+            case "Whipped Cream":
+                addition = WHIPPED_CREAM;
+                break;
+            default:
+                break;
+        }
+        return addition;
     }
 }

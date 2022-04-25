@@ -1,5 +1,6 @@
 package com.example.caferegister;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * Contains a unique ID and a list of menu items.
  * @author Aadit Singh, Shivan Suratia.
  */
-public class Order implements Customizable {
+public class Order implements Customizable, Serializable {
 
     public static final double DEFAULT_TOTAL_WITH_TAXES = 0.0;
     private int orderNum;
@@ -46,7 +47,7 @@ public class Order implements Customizable {
             return true;
         }
         return false;
-    };
+    }
 
     /**
      * Removes a menu item from the order.
@@ -60,7 +61,7 @@ public class Order implements Customizable {
             return items.remove(item);
         }
         return false;
-    };
+    }
 
     /**
      * Returns only the donuts in the items list of the current order.
@@ -117,5 +118,18 @@ public class Order implements Customizable {
      */
     public void setTotalWithTaxes(double totalWithTaxes) {
         this.totalWithTaxes = totalWithTaxes;
+    }
+
+    /**
+     * Creates a string representation of the order.
+     * @return the string representation of the order.
+     */
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("Order #").append(orderNum).append(":\n");
+        for(MenuItem item : items) {
+            builder.append("\t").append(item).append("\n");
+        }
+        return builder.toString();
     }
 }

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">CafeRegister</string>
+    <string name="main_name">Cafe Register</string>
+    <string name="activity_donut_name">Order Donuts</string>
+    <string name="activity_coffee_name">Order Coffee</string>
+    <string name="activity_order_name">Your Order</string>
+    <string name="activity_store_orders_name">Store Orders</string>
 </resources>
