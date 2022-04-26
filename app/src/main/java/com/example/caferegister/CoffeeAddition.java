@@ -1,5 +1,7 @@
 package com.example.caferegister;
 
+import androidx.annotation.NonNull;
+
 /**
  * Models the add-ins for a Coffee order at RU Café.
  * Add-ins include Cream, Syrup, Milk, Caramel, and Whipped Cream.
@@ -27,6 +29,7 @@ public enum CoffeeAddition {
      * Returns the name of the Coffee add-in.
      * @return the Coffee add-in name as a string.
      */
+    @NonNull
     @Override
     public String toString() {
         return name;

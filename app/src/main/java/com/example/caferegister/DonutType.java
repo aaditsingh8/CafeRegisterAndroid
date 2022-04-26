@@ -1,5 +1,7 @@
 package com.example.caferegister;
 
+import androidx.annotation.NonNull;
+
 /**
  * Enum class that enlists the types of donuts offered by RU Café.
  * Types consist of: Yeast Donut, Cake Donut, Donut Hole.
@@ -35,6 +37,7 @@ public enum DonutType {
      * Returns the name of the Donut type.
      * @return the Donut type name as a string.
      */
+    @NonNull
     @Override
     public String toString() {
         return name;

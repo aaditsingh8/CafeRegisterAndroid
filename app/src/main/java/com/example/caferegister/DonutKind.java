@@ -1,5 +1,7 @@
 package com.example.caferegister;
 
+import androidx.annotation.NonNull;
+
 /**
  * Enum class that enlists the kinds of donuts offered by the Café.
  * Donut kinds are a combination of type and flavor.
@@ -27,7 +29,7 @@ public enum DonutKind {
      * @param type the type as a DonutType object.
      * @param flavorName the flavor name as a string.
      */
-    private DonutKind(DonutType type, String flavorName) {
+    DonutKind(DonutType type, String flavorName) {
         this.type = type;
         this.flavor = flavorName;
     }
@@ -59,6 +61,7 @@ public enum DonutKind {
      * Returns the name of the Donut flavor.
      * @return the Donut flavor name as a string.
      */
+    @NonNull
     @Override
     public String toString() {
         return flavor;

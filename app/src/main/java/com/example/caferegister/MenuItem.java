@@ -1,13 +1,13 @@
 package com.example.caferegister;
 
-import java.io.Serializable;
+import androidx.annotation.NonNull;
 
 /**
- * Models a menu item in the orders placed at RU Café.
+ * Models a menu item in the orders placed at Café.
  * Every menu item has a price as a double value and implements a getPrice() method.
  * @author Aadit Singh, Shivan Suratia
  */
-public class MenuItem implements Serializable {
+public class MenuItem {
 
     protected int quantity;
 
@@ -39,6 +39,7 @@ public class MenuItem implements Serializable {
      * Returns the string representation of the menu item.
      * @return the string representation of the menu item.
      */
+    @NonNull
     @Override
     public String toString() {
         return quantity + " ×";

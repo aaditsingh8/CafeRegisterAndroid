@@ -1,5 +1,7 @@
 package com.example.caferegister;
 
+import androidx.annotation.NonNull;
+
 /**
  * Models the size for a Coffee order at RU Café.
  * Sizes include Short, Tall, Grande, and Venti. Each size has its own price.
@@ -38,6 +40,7 @@ public enum CoffeeSize {
      * Returns the name of the Coffee size.
      * @return the Coffee size name as a string.
      */
+    @NonNull
     @Override
     public String toString() {
         return name;

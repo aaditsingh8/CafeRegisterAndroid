@@ -36,7 +36,8 @@ public class DonutOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donut_order);
-        donut = (Donut) getIntent().getSerializableExtra("DONUT");
+        DonutKind donutKind = (DonutKind) getIntent().getSerializableExtra("DONUT");
+        donut = new Donut(donutKind);
 
         donutImage = findViewById(R.id.orderDonutImage);
         donutName = findViewById(R.id.orderDonutName);
@@ -44,6 +45,7 @@ public class DonutOrderActivity extends AppCompatActivity {
         donutSubtotal = findViewById(R.id.donutSubtotal);
 
         setDonutImage(donut.getType());
+        donutName.setText(donut.getFlavor());
         handleQuantitySelection();
         displaySubtotal();
     }
@@ -122,5 +124,6 @@ public class DonutOrderActivity extends AppCompatActivity {
         CharSequence text = getString(R.string.donut_toast);
         int duration = Toast.LENGTH_SHORT;
         Toast.makeText(context, text, duration).show();
+        finish();
     }
 }

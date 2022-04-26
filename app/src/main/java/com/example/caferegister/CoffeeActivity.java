@@ -222,5 +222,6 @@ public class CoffeeActivity extends AppCompatActivity {
         CharSequence text = getString(R.string.coffee_toast);
         int duration = Toast.LENGTH_SHORT;
         Toast.makeText(context, text, duration).show();
+        finish();
     }
 }

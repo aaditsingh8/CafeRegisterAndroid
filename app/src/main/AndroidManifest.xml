@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeRegister">
         <activity
-            android:name=".DonutOrderActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -26,6 +23,11 @@
             android:exported="false"
             android:label="@string/activity_donut_name"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DonutOrderActivity"
+            android:exported="false"
+            android:label="@string/activity_donut_order_name"
+            android:parentActivityName=".DonutActivity" />
         <activity
             android:name=".CoffeeActivity"
             android:exported="false"

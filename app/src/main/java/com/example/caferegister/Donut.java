@@ -1,13 +1,11 @@
 package com.example.caferegister;
 
-import java.io.Serializable;
-
 /**
- * Models a Donut as a menu item in the RU Café order.
+ * Models a Donut as a menu item in the Café order.
  * Contains a type and a flavor. Price is determined by type and quantity.
  * @author Aadit Singh, Shivan Suratia.
  */
-public class Donut extends MenuItem implements Serializable {
+public class Donut extends MenuItem {
     private DonutType type;
     private String flavor;
 
@@ -31,6 +29,16 @@ public class Donut extends MenuItem implements Serializable {
         this.type = donut.getType();
         this.flavor = donut.getFlavor();
         this.quantity = donut.getQuantity();
+    }
+
+    /**
+     * Creates a Donut object using the given DonutKind data.
+     * @param kind the DonutKind object.
+     */
+    public Donut(DonutKind kind) {
+        this.type = kind.getType();
+        this.flavor = kind.toString();
+        this.quantity = 1;
     }
 
     /**

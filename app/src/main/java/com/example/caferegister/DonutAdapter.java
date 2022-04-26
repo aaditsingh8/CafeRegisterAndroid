@@ -42,7 +42,7 @@ class DonutsAdapter extends RecyclerView.Adapter<DonutsAdapter.donutsHolder> {
     public donutsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.view_row, parent, false);
-        return new donutsHolder(view);
+        return new DonutsAdapter.donutsHolder(view);
     }
 
     /**
@@ -67,7 +67,7 @@ class DonutsAdapter extends RecyclerView.Adapter<DonutsAdapter.donutsHolder> {
     }
 
     /**
-     * Get the views from the row layout file, similar to the onCreate() method.
+     * The inner Donuts Holder class, that shows each Donut kind in a CardView.
      */
     public static class donutsHolder extends RecyclerView.ViewHolder {
         private TextView flavor, type;
@@ -79,8 +79,8 @@ class DonutsAdapter extends RecyclerView.Adapter<DonutsAdapter.donutsHolder> {
          */
         public donutsHolder(@NonNull View donutView) {
             super(donutView);
-            flavor = donutView.findViewById(R.id.flavor);
-            type = donutView.findViewById(R.id.type);
+            flavor = donutView.findViewById(R.id.donutFlavor);
+            type = donutView.findViewById(R.id.donutType);
             parentLayout = donutView.findViewById(R.id.rowLayout);
             parentLayout.setOnClickListener(new View.OnClickListener() {
                 /**

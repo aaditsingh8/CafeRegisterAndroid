@@ -5,15 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import java.io.Serializable;
 import java.text.DecimalFormat;
 
 /**
  * The Main Activity that starts up when the app launches. Shows Cafe Register options
  * @author Aadit Singh, Shivan Suratia
  */
-public class MainActivity extends AppCompatActivity implements Serializable {
+public class MainActivity extends AppCompatActivity {
 
     private static final int AMOUNT_GROUPING = 3;
     private static final int INIT_ORDER = 1;
@@ -89,5 +87,16 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         int newOrderNum = order.getOrderNum() + 1;
         orderBasket = new Order(newOrderNum);
         return orderBasket;
+    }
+
+    /**
+     * Cancels the input order from the store orders, and returns the first order in the list.
+     * If no orders are left, it returns null.
+     * @param order the order to be deleted.
+     * @return the first order in the list to display after cancellation, null if no orders left.
+     */
+    public static Order cancelOrder(Order order) {
+        storeOrders.remove(order);
+        return storeOrders.getFirstOrder();
     }
 }

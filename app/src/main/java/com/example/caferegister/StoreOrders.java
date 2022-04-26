@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Models an RU Café orders register.
+ * Models a Café orders register.
  * Contains a list of placed orders.
  * @author Aadit Singh, Shivan Suratia.
  */
@@ -31,7 +31,7 @@ public class StoreOrders implements Customizable {
 
     /**
      * Return the first order that is to be displayed in the Store Orders view.
-     * @return the first Order object.
+     * @return the first Order object, null if no orders are left.
      */
     public Order getFirstOrder() {
         if (orders.isEmpty()) {

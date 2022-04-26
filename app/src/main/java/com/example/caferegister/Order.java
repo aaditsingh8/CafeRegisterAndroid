@@ -1,6 +1,7 @@
 package com.example.caferegister;
 
-import java.io.Serializable;
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +10,15 @@ import java.util.List;
  * Contains a unique ID and a list of menu items.
  * @author Aadit Singh, Shivan Suratia.
  */
-public class Order implements Customizable, Serializable {
+public class Order implements Customizable {
 
-    public static final double DEFAULT_TOTAL_WITH_TAXES = 0.0;
+    private static final double SALES_TAX = .06625;
+    private static final double INIT_AMOUNT = 0.0;
+
     private int orderNum;
     private List<MenuItem> items;
+    private double total;
+    private double taxes;
     private double totalWithTaxes;
 
     /**
@@ -25,7 +30,8 @@ public class Order implements Customizable, Serializable {
     public Order(int orderNum) {
         this.orderNum = orderNum;
         this.items = new ArrayList<>();
-        this.totalWithTaxes = DEFAULT_TOTAL_WITH_TAXES;
+        this.total = INIT_AMOUNT;
+        this.totalWithTaxes = INIT_AMOUNT;
     }
 
     /**
@@ -40,10 +46,12 @@ public class Order implements Customizable, Serializable {
             for (MenuItem menuItem : items) {
                 if (menuItem.equals(item)) {
                     menuItem.increaseQuantity(item.getQuantity());
+                    recalculatePrices();
                     return true;
                 }
             }
             items.add(item);
+            recalculatePrices();
             return true;
         }
         return false;
@@ -58,23 +66,13 @@ public class Order implements Customizable, Serializable {
     public boolean remove(Object obj) {
         if(obj instanceof MenuItem) {
             MenuItem item = (MenuItem) obj;
-            return items.remove(item);
-        }
-        return false;
-    }
-
-    /**
-     * Returns only the donuts in the items list of the current order.
-     * @return the list of Donut objects in the current order.
-     */
-    public List<Donut> getDonuts() {
-        List<Donut> donuts = new ArrayList<>();
-        for (MenuItem item: items) {
-            if (item instanceof Donut) {
-                donuts.add((Donut) item);
+            boolean flag = items.remove(item);
+            if (flag) {
+                recalculatePrices();
+                return true;
             }
         }
-        return donuts;
+        return false;
     }
 
     /**
@@ -94,42 +92,63 @@ public class Order implements Customizable, Serializable {
     }
 
     /**
-     * Return the total amount of the menu items in the given order.
-     * @return the total amount as a double.
+     * Sets the required amounts of the menu items in the given order.
      */
-    public double getTotalAmount() {
+    private void recalculatePrices() {
         double amount = 0.0;
         for (MenuItem menuItem : items) {
             amount += menuItem.itemPrice();
         }
-        return amount;
+        total = amount;
+        taxes = total * SALES_TAX;
+        totalWithTaxes = total + taxes;
     }
 
     /**
-     * Get the total amount with taxes when the Order Basked View.
+     * Get the total amount without taxes for the Order Basked Activity.
+     * @return the total as a double
+     */
+    public double getTotal() {
+        return total;
+    }
+
+    /**
+     * Get the taxes on the total amount for the Order Basked Activity.
+     * @return the taxes as a double
+     */
+    public double getTaxes() {
+        return taxes;
+    }
+
+    /**
+     * Get the total amount with taxes for the Order Basked Activity.
+     * @return the total with taxes as a double
      */
     public double getTotalWithTaxes() {
         return totalWithTaxes;
     }
 
     /**
-     * Set the total amount with taxes when the Order Basked View is opened.
-     * @param totalWithTaxes the total amount with taxes as a double.
+     * Checks if two orders are equal by comparing their order numbers.
+     * @param obj the Object to be compared against.
+     * @return true if equal, false otherwise.
      */
-    public void setTotalWithTaxes(double totalWithTaxes) {
-        this.totalWithTaxes = totalWithTaxes;
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Order) {
+            Order order = (Order) obj;
+            return orderNum == order.orderNum;
+        }
+        return false;
     }
 
     /**
      * Creates a string representation of the order.
-     * @return the string representation of the order.
+     * @return the string representation of the order, which is the order number.
      */
+    @NonNull
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder("Order #").append(orderNum).append(":\n");
-        for(MenuItem item : items) {
-            builder.append("\t").append(item).append("\n");
-        }
-        return builder.toString();
+        return String.valueOf(orderNum);
     }
 }
